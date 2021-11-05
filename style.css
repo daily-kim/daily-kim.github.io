@@ -1,0 +1,59 @@
+.camera {
+    color: rgb(0, 128, 60); /* or #ff0000 */
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.photo {
+    color: rgb(0, 128, 117); /* or #ff0000 */
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    margin-bottom: 40px;
+}
+
+body {
+    background: #eeeeee;
+}
+
+#wrapper {
+    width: 1080px;
+    background: white;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: "SDSamliphopangche_Outline";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0px;
+}
+
+img {
+    border-radius: 12px;
+}
+
+h2 {
+    border-left: 3px solid rgb(109, 108, 108);
+    padding-left: 5px;
+}
+
+a {
+    color: steelblue;
+}
+
+a:visited {
+    color: darkblue;
+}
