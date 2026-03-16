@@ -14,15 +14,35 @@ jobs:
   build:
     name: Build & deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        node-version: [20]
 
     steps:
-      - name: Checkout repository
+      - name: "☁️ Checkout repository"
         uses: actions/checkout@v5
 
-      - name: Build & deploy to GitHub Pages
-        uses: withastro/action@v5
+      - name: "📦 Install pnpm"
+        uses: pnpm/action-setup@v4
         with:
-          # Optional: pin a Node.js version for consistency.
-          # node-version: 20
-          # package-manager: pnpm@latest
-          # build-cmd: pnpm run build
+          version: 10.11.1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: "📦 Install dependencies"
+        run: pnpm install
+
+      - name: "🔎 Lint code"
+        run: pnpm run lint
+
+      - name: "📝 Checking code format"
+        run: pnpm run format:check
+
+      - name: "🚀 Build & deploy to GitHub Pages"
+        uses: withastro/action@v5
