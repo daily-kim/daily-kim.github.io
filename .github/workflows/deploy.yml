@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build & deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build & deploy to GitHub Pages
+        uses: withastro/action@v5
+        with:
+          # Optional: pin a Node.js version for consistency.
+          # node-version: 20
+          # package-manager: pnpm@latest
+          # build-cmd: pnpm run build
